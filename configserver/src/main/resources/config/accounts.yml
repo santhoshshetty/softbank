@@ -1,0 +1,13 @@
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome"
+  contactDetails:
+    name: "John Doe - Developer"
+    email: "john@eazybank.com"
+  onCallSupport:
+    +49 15210529204
+
+
+

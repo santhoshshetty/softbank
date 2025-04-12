@@ -1,0 +1,10 @@
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome"
+  contactDetails:
+    name: "Morris - Loans"
+    email: "morris@eazybank.com"
+  onCallSupport:
+    +49 15210529204

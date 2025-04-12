@@ -1,0 +1,26 @@
+services:
+  accounts:
+    image: "santhoshshetty/accounts:s4"
+    container_name: account-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank
+  loans:
+    image: "santhoshshetty/loans:s4"
+    container_name: account-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - eazybank
+networks:
+  eazybank:
+    driver: "bridge"

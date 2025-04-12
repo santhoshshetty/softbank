@@ -1,0 +1,10 @@
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome"
+  contactDetails:
+    name: "Jens - Prod"
+    email: "{cipher}a2baef38f590b6f30778030c8c37703dde0c7a61a6a6ff6adad1c4aa1615e426861675d285250dd10aaa791d3488bf8d"
+  onCallSupport:
+    +49 15210529204
