@@ -9,6 +9,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,9 @@ import org.springframework.web.bind.annotation.*;
 public class LoansController {
 
     private ILoansService iLoansService;
+
+    @Autowired
+    private Environment environment;
 
     @Autowired
     private LoansContactInfoDto loansApplicationInfoDto;
@@ -76,6 +81,13 @@ public class LoansController {
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ResponseDto(LoansConstants.STATUS_500, LoansConstants.MESSAGE_500));
+    }
+
+    @GetMapping("/envInfo")
+    public ResponseEntity<String> getEnvironmentInfo(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(environment.getProperty("JAVA_HOME"));
     }
 
     @GetMapping("/contactInfo")
