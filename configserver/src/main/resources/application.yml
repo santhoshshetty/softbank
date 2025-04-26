@@ -35,6 +35,7 @@ management:
     health:
       probes:
         enabled: true
+      show-details: always
 
 encrypt:
   key: "45DEEWRWEJCEWR34" #http://localhost:8071/encrypt and put the respective plain text in the body

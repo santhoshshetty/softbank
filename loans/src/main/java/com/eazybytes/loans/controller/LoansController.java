@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-@Validated
-@AllArgsConstructor
+@Validated @AllArgsConstructor
 public class LoansController {
 
     private ILoansService iLoansService;
@@ -94,7 +93,7 @@ public class LoansController {
     public ResponseEntity<LoansContactInfoDto> getContactInfo(){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(loansApplicationInfoDto);
+                    .body(loansApplicationInfoDto);
     }
 
 }
