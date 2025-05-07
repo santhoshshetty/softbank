@@ -26,3 +26,24 @@ management:
     web:
       exposure:
         include: "*"
+  info: #to show the environment related info in eureka dashboard we need to enable this actuator endpoint
+    env:
+      enabled: true
+  endpoint: #to de-register during shutdown of microservices
+    shutdown:
+      access: unrestricted
+
+eureka:
+  instance:
+    prefer-ip-address: true #since we are running in local and don't have domain mappings, we set to prefer ip address
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+info: #to show these info in Eureka dashboard and its exposed via actuator endpoint
+  app:
+    name: "accounts"
+    description: "Soft Bank Accounts Application"
+    version: "1.0.0"

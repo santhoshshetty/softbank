@@ -33,7 +33,7 @@ management:
       show-details: always
 
 encrypt:
-  key: "45DEEWRWEJCEWR34" #http://localhost:8071/encrypt and put the respective plain text in the body
+  key: "45D81EC1EF61DF9AD8D3E5BB397F9" #http://localhost:8071/encrypt and put the respective plain text in the body
 
 server:
   port: 8071
