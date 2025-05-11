@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false #here gateway server is told to connect to eureka server and read individual microservice details
+          #since we have configured custom paths like /eazybank/accounts, to kind of make it simple and not allow the regular
+          #routing, this flag has been disabled
+          lower-case-service-id: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      access: unrestricted
+  info: #to show the environment related info in eureka dashboard we need to enable this actuator endpoint
+    env:
+      enabled: true
+
+info: #to show these info in Eureka dashboard and its exposed via actuator endpoint
+  app:
+    name: "gatewayserver"
+    description: "Soft Bank Gateway server"
+    version: "1.0.0"
+
+logging:
+  level:
+    com:
+      eazybytes:
+        gatewayserver: DEBUG

@@ -47,3 +47,9 @@ info: #to show these info in Eureka dashboard and its exposed via actuator endpo
     name: "accounts"
     description: "Soft Bank Accounts Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      eazybytes:
+        accounts: DEBUG
