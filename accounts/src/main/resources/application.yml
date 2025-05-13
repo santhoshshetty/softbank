@@ -26,10 +26,18 @@ management:
     web:
       exposure:
         include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
   info: #to show the environment related info in eureka dashboard we need to enable this actuator endpoint
     env:
       enabled: true
   endpoint: #to de-register during shutdown of microservices
+    health:
+      probes:
+        enabled: true
     shutdown:
       access: unrestricted
 
