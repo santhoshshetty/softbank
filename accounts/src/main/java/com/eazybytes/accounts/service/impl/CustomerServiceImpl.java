@@ -1,6 +1,6 @@
 package com.eazybytes.accounts.service.impl;
 
-import com.eazybytes.accounts.client.LoansFeignClient;
+import com.eazybytes.accounts.service.client.LoansFeignClient;
 import com.eazybytes.accounts.dto.AccountsDto;
 import com.eazybytes.accounts.dto.CustomerDetailsDto;
 import com.eazybytes.accounts.dto.LoansDto;
@@ -37,7 +37,8 @@ public class CustomerServiceImpl implements ICustomerService {
         CustomerDetailsDto customerDetailsDto= CustomerMapper.mapToCustomerDetailsDto(customer, new CustomerDetailsDto());
         customerDetailsDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts,new AccountsDto()));
         ResponseEntity<LoansDto> loansDtoResponseEntity = loansFeignClient.fetchLoan(correlationId, mobileNumber);
-        customerDetailsDto.setLoansDto(loansDtoResponseEntity.getBody());
+        if(null!=loansDtoResponseEntity)
+            customerDetailsDto.setLoansDto(loansDtoResponseEntity.getBody());
         return customerDetailsDto;
     }
 }
