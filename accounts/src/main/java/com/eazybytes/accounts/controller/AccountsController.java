@@ -46,8 +46,8 @@ public class AccountsController {
 
     private static final Logger logger = LoggerFactory.getLogger(AccountsController.class);
 
-    @Value("${build.version}")
-    private String buildVersion;
+   /* @Value("${build.version:unknown}")
+    private String buildVersion;*/
 
     @Autowired
     private Environment environment;
@@ -121,7 +121,7 @@ public class AccountsController {
         //throw new TimeoutException(); //Added to test retries
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(buildVersion);
+                .body("1.0");
     }
 
     public ResponseEntity<String> getBuildInfoFallBack(Throwable throwable){

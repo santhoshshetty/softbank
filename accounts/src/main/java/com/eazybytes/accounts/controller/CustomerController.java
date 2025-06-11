@@ -51,8 +51,10 @@ public class CustomerController {
             )})
     @GetMapping("/fetchCustomerDetails")
     public ResponseEntity<CustomerDetailsDto> fetchCustomerDetails(@RequestHeader("eazybank-correlation-id") String correlationId, @RequestParam @Pattern(regexp = "(^$|[0-9]{10})",message = "Mobile Number must be 10 digits") String mobileNumber){
-        logger.debug("eazyBank-correlation-id found: {}",correlationId);
+        //logger.debug("eazyBank-correlation-id found: {}",correlationId); - as otel feature is integrated, co-relation id is automatically injected
+        logger.debug("Fetch Customer Details start..");
         CustomerDetailsDto customerDetailsDto = iCustomerService.fetchCustomerDetails(mobileNumber, correlationId);
+        logger.debug("Fetch Customer Details end..");
         return ResponseEntity.status(HttpStatus.OK).body(customerDetailsDto);
     }
 }

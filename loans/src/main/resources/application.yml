@@ -33,6 +33,9 @@ management:
   info: #to show the environment related info in eureka dashboard we need to enable this actuator endpoint
     env:
       enabled: true
+  metrics: #for prometheus to group results based on the spring application name that is 'accounts'
+    tags:
+      application: ${spring.application.name}
   endpoint: #to de-register during shutdown of microservices
     health:
       probes:
@@ -59,4 +62,6 @@ logging:
   level:
     com:
       eazybytes:
-        loans: DEBUG
+        accounts: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
