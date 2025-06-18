@@ -80,7 +80,7 @@
 				<version>3.4.2</version>
 				<configuration>
 					<to>
-						<image>santhoshshetty/${project.artifactId}:s11</image>
+						<image>santhoshshetty/${project.artifactId}:s12</image>
 					</to>
 				</configuration>
 			</plugin>
